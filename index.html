@@ -3,85 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Blitz</title>
+    <title>Sudoku Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Sudoku Blitz</h1>
-        
-        <!-- Game Mode and Difficulty Selection -->
-        <div id="game-settings">
-            <label for="mode-select">Select Mode:</label>
+        <h1>Sudoku Game</h1>
+        <div class="controls">
+            <label for="mode-select">Mode:</label>
             <select id="mode-select">
                 <option value="casual">Casual</option>
                 <option value="mission">Mission</option>
             </select>
-
-            <label for="difficulty-select">Select Difficulty:</label>
+            <label for="difficulty-select">Difficulty:</label>
             <select id="difficulty-select">
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select>
             <button id="start-game">Start Game</button>
-        </div>
-
-        <div id="number-pool">
-            <p>Select a Number:</p>
-            <div id="number-buttons">
-                <button class="number-btn" data-num="1">1</button>
-                <button class="number-btn" data-num="2">2</button>
-                <button class="number-btn" data-num="3">3</button>
-                <button class="number-btn" data-num="4">4</button>
-                <button class="number-btn" data-num="5">5</button>
-                <button class="number-btn" data-num="6">6</button>
-                <button class="number-btn" data-num="7">7</button>
-                <button class="number-btn" data-num="8">8</button>
-                <button class="number-btn" data-num="9">9</button>
+            <div id="timer" style="display:none;">
+                Time Left: <span id="time-left">60</span>
             </div>
         </div>
-
-        <div class="grid" id="sudoku-board">
-            <table>
-                <tbody>
-                    <!-- Create a 9x9 Sudoku grid -->
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="game-status">
-            <p id="status-text">Make your move!</p>
+        <div id="status-text"></div>
+        <table id="sudoku-board"></table>
+        <div class="numbers">
+            <span class="number-btn" data-num="1" draggable="true">1</span>
+            <span class="number-btn" data-num="2" draggable="true">2</span>
+            <span class="number-btn" data-num="3" draggable="true">3</span>
+            <span class="number-btn" data-num="4" draggable="true">4</span>
+            <span class="number-btn" data-num="5" draggable="true">5</span>
+            <span class="number-btn" data-num="6" draggable="true">6</span>
+            <span class="number-btn" data-num="7" draggable="true">7</span>
+            <span class="number-btn" data-num="8" draggable="true">8</span>
+            <span class="number-btn" data-num="9" draggable="true">9</span>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
