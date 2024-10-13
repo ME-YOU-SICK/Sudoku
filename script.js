@@ -34,7 +34,7 @@ numberButtons.forEach(button => {
 function startGame() {
     const selectedMode = modeSelect.value;
     const selectedDifficulty = difficultySelect.value;
-    
+
     // Load the Sudoku puzzle based on selected difficulty
     loadSudokuPuzzle(selectedDifficulty);
 
@@ -85,7 +85,11 @@ function loadSudokuPuzzle(difficulty) {
     for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
             const cellIndex = row * 9 + col;
-            sudokuCells[cellIndex].textContent = boardData[row][col] || "";
+            sudokuCells[cellIndex].textContent = boardData[row][col] !== 0 ? boardData[row][col] : "";
+            sudokuCells[cellIndex].classList.remove('editable'); // Make filled cells non-editable
+            if (boardData[row][col] === 0) {
+                sudokuCells[cellIndex].classList.add('editable'); // Add class for editable cells
+            }
         }
     }
 }
